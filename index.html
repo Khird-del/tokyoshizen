@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKYO SHIZEN | Brake Performance Portfolio</title>
+    <link rel="icon" type="image/png" href="./logo1.png" />
+    <style>
+      /* Base Styling */
+      :root {
+        --color-primary: #cc0000; /* Deep Red for the logo/accents */
+        --color-secondary: #000000; /* Black */
+        --color-text: #333;
+        --color-background: #ffffff;
+        --color-light-gray: #f4f4f4;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+        color: var(--color-text);
+        background-color: var(--color-background);
+      }
+
+      /* Utility Classes */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* Header and Navigation */
+      header {
+        background-color: var(--color-secondary);
+        color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-text {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 25px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--color-primary);
+      }
+
+      /* Hero Section */
+      #hero {
+        position: relative;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("IMG-20251107-WA0034.jpg") no-repeat center center/cover;
+        filter: brightness(50%); /* Darken the image for text contrast */
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5em;
+        margin-bottom: 10px;
+        color: var(--color-primary);
+        letter-spacing: 5px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero-content p {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero-logo {
+        width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 10px 30px;
+        background-color: var(--color-primary);
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: #990000;
+      }
+
+      /* About Section */
+      #about h2,
+      #products h2,
+      #quality h2,
+      #contact h2 {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        color: var(--color-secondary);
+        border-bottom: 3px solid var(--color-primary);
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      /* Products Section */
+      #products {
+        background-color: var(--color-light-gray);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .product-item {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .product-item img {
+        max-width: 100%;
+        height: 250px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+
+      .product-item h3 {
+        color: var(--color-primary);
+        margin-bottom: 10px;
+      }
+
+      /* Quality Section */
+      .quality-feature {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 60px;
+        padding: 20px;
+        border-left: 5px solid var(--color-primary);
+        background-color: #fcfcfc;
+      }
+
+      .quality-feature:nth-child(even) {
+        flex-direction: row-reverse;
+        border-left: none;
+        border-right: 5px solid var(--color-primary);
+      }
+
+      .quality-feature img {
+        max-width: 350px;
+        height: auto;
+        object-fit: contain;
+        flex-shrink: 0;
+        border: 1px solid #ddd;
+        padding: 5px;
+      }
+
+      .quality-text h3 {
+        color: var(--color-secondary);
+        margin-bottom: 15px;
+      }
+
+      .certification-grid {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+
+      .certification-grid img {
+        width: 250px;
+        margin: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Contact Section */
+      #contact {
+        background-color: var(--color-secondary);
+        color: white;
+      }
+
+      #contact h2 {
+        color: white;
+        border-bottom-color: var(--color-primary);
+      }
+
+      .contact-info p {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-note {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: rgba(
+          204,
+          0,
+          0,
+          0.1
+        ); /* Light red transparent background */
+        border: 1px solid var(--color-primary);
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #111;
+        color: #ccc;
+        padding: 20px 0;
+        font-size: 0.9em;
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.5em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          display: none; /* Hide nav links on small screens for simplicity */
+        }
+        .quality-feature,
+        .quality-feature:nth-child(even) {
+          flex-direction: column;
+          border-right: none;
+          border-left: 5px solid var(--color-primary);
+        }
+        .quality-feature img {
+          max-width: 100%;
+          margin: 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#hero" class="logo-text">TOKYO SHIZEN</a>
+          <ul>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#quality">Quality & Tech</a></li>
+            <!-- <li><a href="#contact">Contact</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <img src="./logo.jpg" alt="Tokyo Shizen Logo" class="hero-logo" />
+        <h1>PRECISION IN MOTION</h1>
+        <p>Engineered in Japan. Trusted Globally.</p>
+        <a href="#products" class="cta-button">EXPLORE PRODUCTS</a>
+      </div>
+    </section>
+
+    <section id="about" class="section-padding text-center">
+      <div class="container">
+        <h2>The Spirit of Shizen (自然)</h2>
+        <p>
+          **Tokyo Shizen** combines deep-rooted Japanese quality with
+          cutting-edge brake technology to deliver superior performance and
+          uncompromising safety. We are specialists in automotive friction
+          materials and brake components, upholding a commitment to precision
+          engineering at every stage. Our focus is on providing reliable,
+          high-performance solutions for the global automotive aftermarket.
+        </p>
+        <p>
+          *This website is a portfolio showcase of our capability and product
+          range.*
+        </p>
+      </div>
+    </section>
+
+    <section id="products" class="section-padding text-center">
+      <div class="container">
+        <h2>Stopping Power</h2>
+        <div class="product-grid">
+          <div class="product-item">
+            <img src="./pads.jpg" alt="Brake Pads" />
+            <h3>High-Performance Brake Pads</h3>
+            <p>
+              Advanced, low-wear friction compounds formulated for quiet
+              operation and exceptional stopping power across all temperatures.
+              Includes multi-layer shims for noise suppression.
+            </p>
+          </div>
+
+          <div class="product-item">
+            <img src="./design.jpg" alt="Brake Rotors" />
+            <h3>Slotted & Drilled Brake Rotors</h3>
+            <p>
+              Precision-machined rotors designed to improve thermal efficiency,
+              rapidly dissipate heat, and evacuate gases and debris, ensuring
+              consistent, fade-free braking performance.
+            </p>
+          </div>
+
+          <div class="product-item">
+            <img src="./design1.jpg" alt="Brake Calipers" />
+            <h3>Performance Brake Calipers</h3>
+            <p>
+              Durable, high-strength calipers engineered for optimal rigidity
+              and responsiveness. Designed for reliable, high-pressure operation
+              under extreme driving conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quality" class="section-padding">
+      <div class="container">
+        <h2 class="text-center">Innovation Driven by Quality</h2>
+
+        <div class="quality-feature">
+          <img src="./padinfo.jpg" alt="Brake Pad Anatomy Diagram" />
+          <div class="quality-text">
+            <h3>Anatomy of a Superior Pad</h3>
+            <p>
+              Our brake pads are constructed with multiple advanced layers,
+              including a **Scorched Friction Material** surface for a quicker
+              break-in, a **Shim** for noise reduction, and a **Backing Plate**
+              for structural integrity. Every component is optimized for safety
+              and durability.
+            </p>
+            <p>
+              *(As seen in the production video: meticulous assembly and
+              inspection of components).*
+            </p>
+          </div>
+        </div>
+
+        <div class="quality-feature">
+          <img src="./IMG-20251107-WA0017.jpg" alt="Global Supplier Logos" />
+          <div class="quality-text">
+            <h3>Global Sourcing, Local Excellence</h3>
+            <p>
+              We source the finest raw materials from leading suppliers across
+              the globe to ensure unparalleled product quality. Our partners
+              include experts from **Japan**, the **USA**, **Germany**,
+              **France**, **Korea**, and the **Netherlands**, guaranteeing a
+              world-class friction compound.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-center" style="margin-top: 50px">
+          Certified Performance
+        </h3>
+        <div class="certification-grid">
+          <!-- <img src="" alt="ISO 9001 Certificate" /> -->
+          <p>
+            We adhere to strict international manufacturing standards, including
+            **ISO 9001** for Quality Management and **ISO 14001** for
+            Environmental Management, guaranteeing reliable, environmentally
+            conscious production.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="contact" class="section-padding text-center">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+          <p>
+            For serious business inquiries, distribution, and partnership
+            opportunities, please reach out to our team.
+          </p>
+          <br />
+          <p><strong>Email:</strong> info@tokyoshizen.com</p>
+          <p><strong>Phone:</strong> +81 3 XXXX YYYY</p>
+          <p><strong>Office:</strong> Tokyo, Japan</p>
+        </div>
+        <div class="portfolio-note">
+          <p>
+            <strong>NOTE:</strong> This is a dedicated business portfolio. We do
+            not facilitate direct online sales (buy/sell transactions) through
+            this platform.
+          </p>
+        </div>
+      </div>
+    </section> -->
+
+    <footer>
+      <div class="container text-center">
+        <p>
+          &copy; 2025 TOKYO SHIZEN. All Rights Reserved. | A Portfolio Showcase.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for internal links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
